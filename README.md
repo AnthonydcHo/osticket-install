@@ -31,73 +31,48 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 
 
-<h3>Step 2: Install and Enable Internet Information Services (IIS) in Windows</h3>
+<h3>Step 2: Within the VM (osticket-vm), download the osTicket-Installation-Files.zip [this is a file] and unzip it onto your desktop. The folder should be called “osTicket-Installation-Files” </h3>
 
-- At the bottom left, search for Control Panel
-- Underneath Programs, select Uninstall a Program
-- On the left side of the screen, select Turn Windows Features On or Off
-- Select Internet Information Services (IIS), and select OK
-
-
-<p align="center">
-<img src="https://i.imgur.com/NbQvYeL.png.png" height="80%" width="80%" alt="Azure Free Account"/> 
-</p>
+- Go to downloads folder
+- Move file onto desktop 
+- Right click Extract all, select extract 
 
 
-<h3>Step 3: Download, Install, and Open the Web Platform Installer
-</h3>
 
-- osTicket Installation Files [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
-	- Download Web Platform Installer > select Download Anyway > at the top right, select Open File
-	- Follow the prompt to install Web Platform Installer
-	- Open the Web Platform Installer
-
-<p align="center">
-<img src="https://i.imgur.com/0On2vKd.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/V4p94mP.png" height="80%" width="80%" alt="Azure Free Services"/>
-</p>
-
-- Once Web Platform Installer is open, go to the top right of the screen and search for MySQL 5.5
-- Go to MySQL Windows 5.5 and click Add
-- Go to the top right again and search for PHP
-	- Adjust the list to Sort by "name"
-- Add all simple versions of x86 PHP up until 7.3
-- Select Install at the bottom of the screen and it will tell you to create a username and password to complete the installation
-
-<p align="center">
-<img src="https://i.imgur.com/uWAVcRG.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/MQmZfht.png" height="80%" width="80%" alt="Azure Free Services"/>
-</p>
+![image](https://github.com/user-attachments/assets/b125669c-6fc1-4a58-a914-ed0a517ed948)
 
 
-  - Username: root
-  - Password: Password1
-- Follow the prompt to complete the installation
-- You might get a message stating that "some products have failed to install"
-	- Ignore that message and select Finish
-- Download and install the following from within the lab files: [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
-  - PHP Version 7.3.8
-  - PHP Manager 1.5.0 for IIS 10
-  - Microsoft Visual C++ 2009 Redistributable Package
+
+<h3>Step 3: Install / Enable IIS in Windows WITH CGI </h3>
+ 
+- World Wide Web Services -> Application Development Features -> [X] CGI      
+- From the “osTicket-Installation-Files” folder FROM DOWNLOAD, install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi)
+- From the “osTicket-Installation-Files” folder install the Rewrite Module (rewrite_amd64_en-US.msi)
+- Create the directory C:\PHP
+  - file explorer - windows c (c drive) - make new folder php
+- From the “osTicket-Installation-Files” folder, unzip PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) into the “C:\PHP” folder
+	-unzip-go into osticket folder - php - extract all - browse to php folder - select 
+- From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe.
+- From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi)
+
+   -  Typical Setup 
+   -  Launch Configuration Wizard (after install) 
+   -  Username: root
+   -  Password: root
+
+- Open IIS as an Admin
+- Register PHP from within IIS (PHP Manager -> C:\PHP\php-cgi.exe)
 
 
-<p align="center">
-<img src="https://i.imgur.com/zAPFRmU.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/DUiyQdt.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
 
 
 <h3>Step 4: Install osTicket v1.15.8</h3>
      
-- Download osTicket (download from within lab files: [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6))
-- Right-click on the file and select Extract All
-	- Open the new osTicket folder
-		- Copy the Upload folder into C:\inetpub\wwwroot
-		- Rename “Upload” to “osTicket”
+- From the “osTicket-Installation-Files” folder, unzip[extract] “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
+- Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”
 
 
-<p align="center">
-<img src="https://i.imgur.com/BpL8IJE.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/xSJD7yk.png" height="80%" width="80%" alt="Azure Free Services"/>
-</p>
- 
-     
+    
 
 <h3>Step 5: Restart the IIS Server
 </h3>
