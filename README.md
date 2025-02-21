@@ -2,19 +2,12 @@
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-<h1>osTicket - Prerequisites and Installation</h1>
-This tutorial outlines the prerequisites and installation of the open-source helpdesk ticketing system osTicket.<br />
 
 
-<h2>Environments and Technologies Used</h2>
+<h2>Description</h2>
+This tutorial outlines the installation of the open-source helpdesk ticketing system osTicket.
+<br />
 
-- Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
-- Internet Information Services (IIS)
-
-<h2>Operating Systems Used </h2>
-
-- Windows 10</b> (21H2)
 
 <h2>List of Prerequisites</h2>
 
@@ -22,192 +15,153 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 <li>Microsoft Azure</li>
 <li>Virtual Machine</li>
 <li>osTicket Installation Files</li>
-</ul>
 
-<h2>Installation Steps</h2>
+<h2>Environments and Technologies</h2>
 
-<p>
-<h3>Step 1: Connect to Your Virtual Machine with Remote Desktop</h3>
-
-
-
-<h3>Step 2: Within the VM (osticket-vm), download the osTicket-Installation-Files.zip [this is a file] and unzip it onto your desktop. The folder should be called “osTicket-Installation-Files” </h3>
-
-- Go to downloads folder
-- Move file onto desktop 
-- Right click Extract all, select extract 
+<ul>
+<li>Microsoft Azure (Virtual Machines/Compute)
+<li>Remote Desktop
+<li>Internet Information Services (IIS)
 
 
-
-![image](https://github.com/user-attachments/assets/b125669c-6fc1-4a58-a914-ed0a517ed948)
-
-
-
-<h3>Step 3: Install / Enable IIS in Windows WITH CGI </h3>
- 
-- World Wide Web Services -> Application Development Features -> [X] CGI      
-- From the “osTicket-Installation-Files” folder FROM DOWNLOAD, install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi)
-- From the “osTicket-Installation-Files” folder install the Rewrite Module (rewrite_amd64_en-US.msi)
-- Create the directory C:\PHP
-  - file explorer - windows c (c drive) - make new folder php
-- From the “osTicket-Installation-Files” folder, unzip PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) into the “C:\PHP” folder
-	-unzip-go into osticket folder - php - extract all - browse to php folder - select 
-- From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe.
-- From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi)
-
-   -  Typical Setup 
-   -  Launch Configuration Wizard (after install) 
-   -  Username: root
-   -  Password: root
-
-- Open IIS as an Admin
-- Register PHP from within IIS (PHP Manager -> C:\PHP\php-cgi.exe)
-
-
-
-
-<h3>Step 4: Install osTicket v1.15.8</h3>
-     
-- From the “osTicket-Installation-Files” folder, unzip[extract] “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
-- Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”
-
-
-    
-
-<h3>Step 5: Restart the IIS Server
-</h3>
-
-- Search for Internet Information Services (IIS) and select Open
-	- Select Restart on the right-hand side 
-- On the left side of the screen, select Virtualmachine > Sites > Default Website > osTicket
-- On the right side of the screen, click “Browse *:80”
-	- This should open osTicket in your web browser
-- Before continuing, head back to IIS
-- Open IIS
-
-
+<h2>Program walk-through:</h2>
 <p align="center">
-<img src="https://i.imgur.com/OpBkwwj.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/XNVSNia.png" height="80%" width="80%" alt="Azure Free Services"/>
-</p>
-
-<h3>Step 6: Enable Extensions in IIS
-</h3>
-
-- Go back to IIS > Sites > Default Web Site > osTicket
-- Double-click PHP Manager
-- Click “Enable or Disable an Extension” at the bottom of the screen under PHP Extensions
-- Right-click and enable the following
-    - php_imap.dll (Might be already enabled)
-    - php_intl.dll
-    - php_opcache.dll
-
- 
-     
- <p align="center">
-<img src="https://i.imgur.com/GQfPOU8.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/iCK6vst.png" height="80%" width="80%" alt="Azure Free Services"/>
-</p>
-
-<h3>Step 7: Refresh the osTicket Site in Your Browser
-</h3>
-
-- Refresh the osTicket site adn observe the change
-	- Intl Extension should now have a green checkmark next to it
-
-
-<p align="center">
-<img src="https://i.imgur.com/ByfN2Fd.png" height="80%" width="80%" alt="Azure Free Account"/>
-
-
-
-<h3>Step 8: Rename</h3>
- 
-- Open Windows Explorer and select C: > inetpub > wwwroot > osTicket > include
-	- Rename the following file:
-		- From: ost-SAMPLEconfig.php
-		- To: ost-config.php
-
-
-<p align="center">
-<img src="https://i.imgur.com/DDTR8CD.png" height="80%" width="80%" alt="Azure Free Account"/>
-
-<h3>Step 9: Assign Permissions to ost-config.php</h3>
-
-- Right-click ost-config.php 
-- Open Properties > Security > Advanced > Permissions 
-- Select Disable Inheritance > Remove all inherited permissions from this object 
-
-<p align="center">
-<img src="https://i.imgur.com/pcFvK9d.png" height="80%" width="80%" alt="Azure Free Account"/>
-
-- Afterwards, select Add > select Principal > type in "everyone" > select Check Names > select OK
-	- Allow everyone full control (check all boxes) > Select apply > OK
-
-<p align="center">
-<img src="https://i.imgur.com/vUlpzTb.png" height="70%" width=70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/WZrk1F7.png" height="80%" width="80%" alt="Azure Free Services"/>
-</p>
-
-  
-<h3>Step 10: Continue Setting Up osTicket in Browser</h3>
-
-- Go back to the browser and click Continue
-  - Name: Helpdesk
-  - Email: whichever email you want
-  - First Name: your first name
-  - Last Name: your last name
-  - Email Address: whichever email you want (needs to be different from the Helpdesk's default email)
-  - Username: user_admin 
-  - Password: Password1 
-  
-<p align="center">
-<img src="https://i.imgur.com/1GfpPLs.png" height="80%" width="80%" alt="Azure Free Account"/>
-
-<h3>Step 11: Download and Install HeidiSQL</h3>
-
-- Head to osTicket Installation Files [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
-	- Download and install HeidiSQL
-- Open HeidiSQL > Select "New" at the bottom-left corner of the screen
-   - User: root
-   - Password: Password
-- Select Open
-- On the left side, right-click Unnamed > select Create New > Database
-- Name it “osTicket” and select OK
-
- <p align="center">
-<img src="https://i.imgur.com/mDBWQ5k.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/ADJYQyB.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
-
-<h3>Step 12: Continue Setting Up osTicket by Filling Out the Fields</h3>
-
-- Go back to the browser
-	- MySQL Database: osTicket (the one you just created in HeidiSQL)
-	- MySQL Username: root
-	- MySQL Password: Password1
-	- Finally, click Install Now
-
-<p align="center">
-<img src="https://i.imgur.com/Npqj9Us.png" height="80%" width="80%" alt="Azure Free Account"/>
-
-
-
-<p align="center">
-<img src="https://i.imgur.com/F52ypHn.png" height="80%" width="80%" alt="Azure Free Account"/>
-
-<h3>Tips!</h3>
-
-- To create tickets as a user: http://localhost/osTicket/
-- To log in as an Admin or helpdesk professional: http://localhost/osTicket/scp
-
-<h3>Step 13: Post-Intallation Cleanup</h3>
-
-- Go to C: > inetpub > wwwroot > osTicket > Setup
-    - Delete the contents in the Setup folder
-    - Afterwards, delete the Setup folder
-- Go to C: > Inetpub > wwwroot > osTicket > Include
-    - Right-click on ost-config.php 
-    - Select Securities > Advanced > Click on "everyone" > edit to change permissions
-	- Allow everyone to only have "Read and execute" permission, then select OK > Apply > OK
-	
- <p align="center">
-<img src="https://i.imgur.com/wucT3UN.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/cPSx6VL.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>	
-
+1: First, create an Azure Virtual Machine Windows. We can name the resource group osTicket and virtual machine osTicket-vm:  <br/>
+<img src="https://i.imgur.com/nXyWoCQ.png" height="80%" width="80%" 
+<br />
+<br />
+<br />
+Image below shows the image and size we will using. For account you can use make your own account name and password or use ours: account: labuser password osTicketPassword1!:  <br/>
+<img src="https://i.imgur.com/5AuRHEq.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Log into Remote Desktop using the public IP address of virtual machine: <br/>
+<img src="https://i.imgur.com/fUCRSBa.png" height="80%" width="80%" 
+<br />
+<br />
+Within the VM (osticket-vm), download the osTicket-Installation-Files.zip and unzip it onto your desktop. The folder should be called “osTicket-Installation-Files”
+- We will use the files in this folder to install osTicket and some of the dependencies:  <br/>
+<img src="https://i.imgur.com/yP9Qdp4.png" height="80%" width="80%" 
+<br />
+<br />
+Extract all onto virtual machine:  <br/>
+<img src="https://i.imgur.com/7xlVnnh.png" height="80%" width="80%" 
+<br />
+<br />
+Enable IIS, Start > Control Panel > Programs (uninstall programs) > On left click turn windows on or off > check Internet Information Services:  <br/>
+<img src="https://i.imgur.com/tqXL9A2.png"80%" width="80%" 
+<br />
+<br />
+We will need to download CGI, World Wide Web Services -> Application Development Features -> [X] CGI:  <br/> 
+<img src="https://i.imgur.com/tL0NltI.png" width="80%" 
+<br />
+<br />
+From the “osTicket-Installation-Files” folder, install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi):  <br/>
+<img src="https://i.imgur.com/jRQxOMe.png" width="80%" 
+<br />
+<br />
+From the “osTicket-Installation-Files” folder install the Rewrite Module (rewrite_amd64_en-US.msi):  <br/>
+<img src="https://i.imgur.com/negfMHT.png" height="80%" width="80%" 
+<br />
+<br />
+Create the folder/directory C:\PHP in the (c:) drive:  <br/>
+<img src="https://i.imgur.com/wMkgkE7.png" height="80%" width="80%" 
+<br />
+<br />
+From the “osTicket-Installation-Files” folder, unzip PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) into the “C:\PHP” folder:  <br/>
+<img src="https://i.imgur.com/AUU3qhy.png" height="80%" width="80%" 
+<br />
+<br />
+From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe:  <br/>
+<img src="https://i.imgur.com/VJeIQUu.png" height="80%" width="80%" 
+<br />
+<br />
+From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi). We will select these options when upon installing Typical Setup > Launch Configuration Wizard (after install) > Standard Configuration and we can use Username: root
+Password: root:  <br/>
+<img src="https://i.imgur.com/2GmOpSV.png" height="80%" width="80%" 
+<br />
+<br />
+Open IIS as an Admin: <br/>
+<img src="https://i.imgur.com/pUUyJ9A.png" height="80%" width="80%" 
+<br />
+<br />
+Register PHP from within IIS (PHP Manager -> C:\PHP\php-cgi.exe):  <br/>
+<img src="https://i.imgur.com/86CYC6X.png" height="80%" width="80%" 
+<br />
+<br />
+Reload IIS (Open IIS, Stop and Start the server) (right side):  <br/>
+<img src="https://i.imgur.com/NSvLs3p.png" height="80%" width="80%" 
+<br />
+<br />
+Install osTicket v1.15.8, From the “osTicket-Installation-Files” folder, extract “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot” Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”: <br/>
+<img src="https://i.imgur.com/DZLGJ6r.png" height="80%" width="80%"
+<br />
+<img src="https://i.imgur.com/y6T4YbG.png" height="80%" width="80%"  
+<br />
+<br />
+Reload IIS (Open IIS, Stop and Start the server) again:  <br/>
+<img src="https://i.imgur.com/IIyiQyn.png" height="80%" width="80%" 
+<br />
+<br />
+Go to sites > Default > osTicket On the right, click “Browse *:80”:  <br/>
+<img src="https://i.imgur.com/XLALqz7.png" height="80%" width="80%" 
+<br />
+<br />
+By now you should not have an error page, if you do you may have missed a step:  <br/>
+<img src="https://i.imgur.com/qfqmHqt.png" height="80%" width="80%" 
+<br />
+<br />
+Note that some extensions are not enabled Go back to IIS, sites > Default > osTicket > Double-click PHP Manager: <br/>
+<img src="https://i.imgur.com/yA5YhG5.png" height="80%" width="80%" 
+<br />
+<br />
+Click “Enable or disable an extension: <br/>
+<img src="https://i.imgur.com/ecLrvHy.png" height="80%" width="80%" 
+<br />
+<br />
+Find and enable: Enable: php_imap.dll, php_intl.dll, php_opcache.dll: <br/>
+<img src="https://i.imgur.com/wFXfITk.png" height="80%" width="80%" 
+<br />
+<br />
+Refresh the osTicket site in your browser, observe the changes (should have less x's):  <br/>
+<img src="https://i.imgur.com/Wk2M9A5.png" height="80%" width="80%" 
+<br />
+<br />
+We will be renaming file ost-sampleconfig.php to ost-config.php, go back to the (c:) drive, inetpub >wwwroot > osTicket > include > ost-sampleconfig.php:  <br/>
+<img src="https://i.imgur.com/O3SM0ag.png" height="80%" width="80%" <br/>
+<br/> 
+<img src="https://i.imgur.com/kYInaIx.png" height="80%" width="80%" <br/>
+<br /> 
+<br /> 
+Assign Permissions/Taking permission away ost-config.php, right click into properties > security > advanced > disabled inheritance > remove all:  <br/>
+<img src="https://i.imgur.com/HFrpxuM.png" height="80%" width="80%" <br/>
+<br />
+<img src="https://i.imgur.com/eDZBpoy.png" height="80%" width="80%" <br/>
+<br /> 
+<br />   
+Add New Permissions, add > select a principal > type everyone:  <br/>
+<img src="https://i.imgur.com/rB5EvqK.png" height="80%" width="80%" <br/>
+<br />
+<br />
+Continue Setting up osTicket in the browser, click Continue, make up your own name for help desk name *your name help desk* and Default email (random email will work, yourname@gmail.com. We are going to continue setting up the rest of osTicket: <br/>
+<img src="https://i.imgur.com/u8uKu3e.png" height="80%" width="80%" <br/>
+<br />
+<img src="https://i.imgur.com/HpOO5gT.png" height="80%" width="80%"  <br/>
+<br />
+We are not installing yet, we will need to install HeidlSQL from the “osTicket-Installation-Files” folder: Open Heidi SQL Create a new session, root/root Connect to the session,  Create a database called “osTicket” <br/>
+<img src="https://i.imgur.com/2R1arZL.png" height="80%" width="80%" <br/>
+<br /> 
+<img src="https://i.imgur.com/NuFsPyV.png" height="80%" width="80%"  <br/>
+<br />  
+<img src="https://i.imgur.com/jKp7jNr.png" height="80%" width="80%"  <br/>
+<br />
+<img src="https://i.imgur.com/l6v5DZY.png" height="80%" width="80%"  <br/>
+<br />
+Continue Setting up osTicket in the browser, MySQL Database: osTicket, MySQL Username: root, MySQL Password: root, Click “Install Now!”:  <br/>
+<img src="https://i.imgur.com/J0SMm4A.png"80%" width="80%" 
+<br />
+<br />
+Congratulations, hopefully it is installed with no errors! Browse to your help desk login page: http://localhost/osTicket/scp/login.php:  <br/>
+<img src="https://i.imgur.com/vEjFlAP.png" height="80%" width="80%" 
+<br />
+<br />
