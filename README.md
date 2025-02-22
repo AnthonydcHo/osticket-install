@@ -5,13 +5,13 @@
 
 
 <h2>Description</h2>
-This tutorial outlines the installation of the open-source helpdesk ticketing system osTicket. This will be a part of my three part series, the installation, post-installation, and configuring and working tickets in osTicket.
+This tutorial outlines the installation of the open-source helpdesk ticketing system osTicket. This will be my first three part series, the installation, post-installation, and configuring and working tickets in osTicket.
 <br />
 
 
 <h2>List of Prerequisites</h2>
 
-<ul>
+
 <li>Microsoft Azure</li>
 <li>Virtual Machine</li>
 <li>osTicket Installation Files</li>
