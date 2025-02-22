@@ -40,12 +40,12 @@ Log into Remote Desktop using the public IP address of virtual machine: <br/>
 <img src="https://i.imgur.com/fUCRSBa.png" height="80%" width="80%" 
 <br />
 <br />
-Within the VM (osticket-vm), download the osTicket-Installation-Files.zip and unzip it onto your desktop. The folder should be called “osTicket-Installation-Files”
+Within the VM (osticket-vm), download https://drive.google.com/uc?export=download&id=1b3RBkXTLNGXbibeMuAynkfzdBC1NnqaD and unzip it onto your desktop. The folder should be called “osTicket-Installation-Files” 
 - We will use the files in this folder to install osTicket and some of the dependencies:  <br/>
 <img src="https://i.imgur.com/yP9Qdp4.png" height="80%" width="80%" 
 <br />
 <br />
-Extract all onto virtual machine:  <br/>
+Drag file folder onto virtual machine desktop:  <br/>
 <img src="https://i.imgur.com/7xlVnnh.png" height="80%" width="80%" 
 <br />
 <br />
@@ -69,7 +69,7 @@ Create the folder/directory C:\PHP in the (c:) drive:  <br/>
 <img src="https://i.imgur.com/wMkgkE7.png" height="80%" width="80%" 
 <br />
 <br />
-From the “osTicket-Installation-Files” folder, unzip PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) into the “C:\PHP” folder:  <br/>
+From the “osTicket-Installation-Files” folder, extract PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) into the “C:\PHP” folder:  <br/>
 <img src="https://i.imgur.com/AUU3qhy.png" height="80%" width="80%" 
 <br />
 <br />
@@ -77,7 +77,7 @@ From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe:  <
 <img src="https://i.imgur.com/VJeIQUu.png" height="80%" width="80%" 
 <br />
 <br />
-From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi). We will select these options when upon installing Typical Setup > Launch Configuration Wizard (after install) > Standard Configuration and we can use Username: root
+From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi). We will select these options when upon installing Typical Setup > Standard Configuration > Next > Execute and we can use Username: root
 Password: root:  <br/>
 <img src="https://i.imgur.com/2GmOpSV.png" height="80%" width="80%" 
 <br />
@@ -94,7 +94,7 @@ Reload IIS (Open IIS, Stop and Start the server) (right side):  <br/>
 <img src="https://i.imgur.com/NSvLs3p.png" height="80%" width="80%" 
 <br />
 <br />
-Install osTicket v1.15.8, From the “osTicket-Installation-Files” folder, extract “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot” Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”: <br/>
+Install osTicket v1.15.8, From the “osTicket-Installation-Files” folder, extract “osTicket-v1.15.8.zip” into the same folder and copy the “upload” folder into “c:\inetpub\wwwroot” Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”: <br/>
 <img src="https://i.imgur.com/DZLGJ6r.png" height="80%" width="80%"
 <br />
 <img src="https://i.imgur.com/y6T4YbG.png" height="80%" width="80%"  
@@ -144,7 +144,7 @@ Add New Permissions, add > select a principal > type everyone:  <br/>
 <img src="https://i.imgur.com/rB5EvqK.png" height="80%" width="80%" <br/>
 <br />
 <br />
-Continue Setting up osTicket in the browser, click Continue, make up your own name for help desk name *your name help desk* and Default email (random email will work, yourname@gmail.com. We are going to continue setting up the rest of osTicket: <br/>
+Continue Setting up osTicket in the browser, click Continue, make up your own name for help desk name *your name help desk* and Default email (random email will work, yourname@gmail.com, personal and work email must  be different) We are going to continue setting up the rest of osTicket: <br/>
 <img src="https://i.imgur.com/u8uKu3e.png" height="80%" width="80%" <br/>
 <br />
 <img src="https://i.imgur.com/HpOO5gT.png" height="80%" width="80%"  <br/>
@@ -166,4 +166,4 @@ Congratulations, hopefully it is installed with no errors! Browse to your help d
 <img src="https://i.imgur.com/vEjFlAP.png" height="80%" width="80%" 
 <br />
 <br />
-<b>osTicket is now installed and ready for use! In the next project I will walk you through how to configure agents, their permissions and access, users, and more!
+<b>osTicket is now installed and ready for use! In the next project I will walk you through how to configure agents, their permissions and access, users, https://github.com/AnthonydcHo/post-install-config!
