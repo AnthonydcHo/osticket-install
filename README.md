@@ -165,3 +165,4 @@ Congratulations, hopefully it is installed with no errors! Browse to your help d
 <img src="https://i.imgur.com/vEjFlAP.png" height="80%" width="80%" 
 <br />
 <br />
+<b>osTicket is now installed and ready for use! In the next project I will walk you through how to configure agents, their permissions and access, users, and more!
