@@ -5,7 +5,7 @@
 
 
 <h2>Description</h2>
-This tutorial outlines the installation of the open-source helpdesk ticketing system osTicket. This will be a part of my three part series, the installation, post-installation, and configuring and working tickets in osTicket
+This tutorial outlines the installation of the open-source helpdesk ticketing system osTicket. This will be a part of my three part series, the installation, post-installation, and configuring and working tickets in osTicket.
 <br />
 
 
