@@ -22,6 +22,7 @@ This tutorial outlines the installation of the open-source helpdesk ticketing sy
 <li>Microsoft Azure (Virtual Machines/Compute)
 <li>Remote Desktop
 <li>Internet Information Services (IIS)
+<li>Windows 10
 
 
 <h2>Program walk-through:</h2>
