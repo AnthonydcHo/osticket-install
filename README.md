@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-
+<h1>osTicket: Installation
 
 <h2>Description</h2>
 This tutorial outlines the installation of the open-source helpdesk ticketing system osTicket. This will be my first three part series, the installation, post-installation, and configuring and working tickets in osTicket.
