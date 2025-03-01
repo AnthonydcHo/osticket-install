@@ -25,7 +25,7 @@ This tutorial outlines the installation of the open-source helpdesk ticketing sy
 <li>Windows 10
 
 
-<h2>Program walk-through:</h2>
+<h2>Implementation/Program walk-through:</h2>
 <p align="center">
 1: First, create an Azure Virtual Machine Windows. We can name the resource group osTicket and virtual machine osTicket-vm:  <br/>
 <img src="https://i.imgur.com/mmrbwiW.png" height="80%" width="80%" 
